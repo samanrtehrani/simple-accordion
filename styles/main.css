@@ -1,17 +1,20 @@
 .accordion {
     display: flex;
     flex-flow: column nowrap;
+    padding-left: 15px;
 }
 
 .accordion>.accordion-item {
     flex: 0 1 auto;
     display: flex;
     flex-flow: column nowrap;
+    margin: 3px 0 3px 0px;
 }
 
 .accordion-item>.item-content {
     overflow: hidden;
     display: none;
+    padding-left: 15px;
 }
 
 .accordion-item.open>.item-content {
@@ -22,6 +25,7 @@
 .accordion-item>.item-title {
     display: flex;
     align-items: center;
+    margin: 3px 0 3px 0px;
 }
 
 .accordion-item>.item-title:before {
@@ -33,5 +37,47 @@
 }
 
 .accordion-item.open>.item-title:before {
+    transform: rotate(90deg);
+}
+
+.accordion-2 {
+    display: flex;
+    flex-flow: column nowrap;
+    padding-left: 15px;
+}
+
+.accordion-2>.accordion-2-item {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 3px 0 3px 0px;
+}
+
+.accordion-2-item>.item-content {
+    overflow: hidden;
+    display: none;
+    padding-left: 15px;
+}
+
+.accordion-2-item.open>.item-content {
+    overflow: hidden;
+    display: block;
+}
+
+.accordion-2-item>.item-title {
+    display: flex;
+    align-items: center;
+    margin: 3px 0 3px 0px;
+}
+
+.accordion-2-item>.item-title:before {
+    content: "\25BA";
+    font-size: 10px;
+    line-height: inherit;
+    margin-right: 5px;
+    transition: transform 200ms;
+}
+
+.accordion-2-item.open>.item-title:before {
     transform: rotate(90deg);
 }

@@ -42,6 +42,19 @@ class SimpleAccordion {
             accordion.self.addEventListener('click', (evnt) => this.handleClickEvent(evnt), false); // using arrow function so that 'this' references the current class scope.
         }
     }
+    handleClickEvent(evnt) {
+        evnt.stopPropagation();
+        let clickedElement = evnt.target || evnt.srcElement;
+
+        if (clickedElement && clickedElement.className === this._titleSelector.slice(1)) {
+            //Now we know the target is a title!
+            let clickedItem = clickedElement.parentNode;
+            let clickedItemAccordion = clickedItem.parentNode;
+
+            if (clickedItemAccordion === evnt.currentTarget)
+                this.toggle(clickedElement.parentNode);
+        }
+    }
     toggle(item) {
 
         if (item.classList.contains('open')) {
@@ -68,7 +81,6 @@ class SimpleAccordion {
         item.classList.add('open');
 
         let interval = setInterval(() => {
-            console.log('loop');
             if (parseInt(itemContent.style.height.split('px')[0]) >= contentHeight) {
                 clearInterval(interval);
                 itemContent.style.removeProperty('height');
@@ -98,13 +110,6 @@ class SimpleAccordion {
             if (item.classList.contains('open'))
                 this.closeItem(item);
         });
-    }
-    handleClickEvent(evnt) {
-        evnt.stopPropagation();
-        let clickedElement = evnt.target || evnt.srcElement;
-        if (clickedElement && clickedElement.className === this._titleSelector.slice(1)) {
-            this.toggle(clickedElement.parentNode);
-        }
     }
     set enabled(e) {
         this._enabaled = e;
