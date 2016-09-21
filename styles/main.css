@@ -1,7 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .accordion {
     display: flex;
     flex-flow: column nowrap;
-    padding-left: 15px;
+    width: 600px;
+    height: auto;
+    border-radius: 3px;
+    background-color: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15), 0 0 0 1px rgba(34, 36, 38, .15);
 }
 
 .accordion>.accordion-item {
@@ -9,12 +19,19 @@
     display: flex;
     flex-flow: column nowrap;
     margin: 3px 0 3px 0px;
+    border-top: 1px solid rgba(34, 36, 38, .15);
+    padding-left: 15px;
+}
+
+.accordion>.accordion-item:first-of-type {
+    border-top: none;
 }
 
 .accordion-item>.item-content {
     overflow: hidden;
     display: none;
     padding-left: 15px;
+    margin: 6px 0 0 0px;
 }
 
 .accordion-item.open>.item-content {
@@ -22,10 +39,20 @@
     display: block;
 }
 
+.accordion-item.open>.item-title {
+    color: rgba(0, 0, 0, 1);
+}
+
+.accordion-item>.item-title:hover {
+    color: rgba(0, 0, 0, 1);
+}
+
 .accordion-item>.item-title {
     display: flex;
     align-items: center;
-    margin: 3px 0 3px 0px;
+    margin: 3px 0 0 0px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, .4);
 }
 
 .accordion-item>.item-title:before {
@@ -43,20 +70,25 @@
 .accordion-2 {
     display: flex;
     flex-flow: column nowrap;
-    padding-left: 15px;
 }
 
 .accordion-2>.accordion-2-item {
     flex: 0 1 auto;
     display: flex;
     flex-flow: column nowrap;
-    margin: 3px 0 3px 0px;
+    margin: 3px 0 0px 0px;
+    padding-left: 15px;
+}
+
+.accordion-2>.accordion-2-item:first-of-type {
+    border-top: none;
 }
 
 .accordion-2-item>.item-content {
     overflow: hidden;
     display: none;
     padding-left: 15px;
+    margin: 6px 0 0 0px;
 }
 
 .accordion-2-item.open>.item-content {
@@ -64,20 +96,30 @@
     display: block;
 }
 
+.accordion-2-item.open>.item-title {
+    color: rgba(0, 0, 255, 1);
+}
+
+.accordion-2-item>.item-title:hover {
+    color: rgba(0, 0, 255, 1);
+}
+
 .accordion-2-item>.item-title {
     display: flex;
     align-items: center;
-    margin: 3px 0 3px 0px;
+    margin: 3px 0 0 0;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
 }
 
 .accordion-2-item>.item-title:before {
-    content: "\25BA";
-    font-size: 10px;
+    content: "\2022";
+    font-size: 30px;
     line-height: inherit;
     margin-right: 5px;
     transition: transform 200ms;
 }
 
-.accordion-2-item.open>.item-title:before {
-    transform: rotate(90deg);
+.accordion-2-item.open {
+    transform: translateX(10px);
 }
