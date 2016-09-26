@@ -12,7 +12,7 @@
         titleSelector: '.item-title'
     };
     if (document.readyState != 'loading') {
-        let accordions = new SimpleAccordion(selectors, { enabled: true, openingDuration: 200, closingDuration: 200, resolution: 5 });
+        let accordions = new SimpleAccordion(selectors, { enabled: true, openingDuration: 200, closingDuration: 200, resolution: 5, mutualExclusive: false });
         let accordions2 = new SimpleAccordion(selectors2, { enabled: true, openingDuration: 200, closingDuration: 200, resolution: 5 });
     } else {
         document.addEventListener('DOMContentLoaded', () => {
